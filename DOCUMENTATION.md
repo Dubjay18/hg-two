@@ -144,3 +144,7 @@ fetch("https://hg-two.onrender.com/api/persons/John%20Doe")
 # Notes
 
 This API uses MongoDB as the backend database.
+
+# UMI Diagram
+
+![Sample Image](UMI-.png)
