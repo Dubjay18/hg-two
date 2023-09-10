@@ -20,8 +20,7 @@ The base URL for all API endpoints is:
 
 ```json
 {
-  "name": "John Doe",
-  "age": 30
+  "name": "John Doe"
 }
 ```
 
@@ -30,8 +29,7 @@ The base URL for all API endpoints is:
 ```json
 {
   "name": "John Doe",
-  "age": 30
-}
+
 ```
 
 **Response (400 Bad Request):**
@@ -52,8 +50,7 @@ The base URL for all API endpoints is:
 
 ```json
 {
-  "name": "John Doe",
-  "age": 30
+  "name": "John Doe"
 }
 ```
 
@@ -76,8 +73,7 @@ their name.
 
 ```json
 {
-  "name": "Updated Name",
-  "age": 35
+  "name": "Updated Name"
 }
 ```
 
@@ -85,8 +81,7 @@ their name.
 
 ```json
 {
-  "name": "Updated Name",
-  "age": 30
+  "name": "Updated Name"
 }
 ```
 

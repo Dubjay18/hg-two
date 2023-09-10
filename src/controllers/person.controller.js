@@ -2,7 +2,7 @@ const Person = require("../models/person.model");
 
 async function CreatePerson(req, res) {
   try {
-    const { name, age } = req.body;
+    const { name } = req.body;
     // Basic validation, ensure name is a string
     if (typeof name !== "string") {
       return res
@@ -10,7 +10,7 @@ async function CreatePerson(req, res) {
         .json({ error: "Name must be a string" });
     }
 
-    const person = new Person({ name, age });
+    const person = new Person({ name });
     await person.save();
     res.status(201).json(person);
   } catch (error) {

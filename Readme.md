@@ -61,10 +61,10 @@ The server should now be running at http://localhost:8000.
 
   - Add a new person to the database.
   - **Request Body Example**:
+
     ```json
     {
-      "name": "John Doe",
-      "age": 30
+      "name": "John Doe"
     }
     ```
 
@@ -76,10 +76,10 @@ The server should now be running at http://localhost:8000.
 
   - Modify details of an existing person by their name.
   - **Request Body Example**:
+
     ```json
     {
-      "name": "Updated Name",
-      "age": 35
+      "name": "Updated Name"
     }
     ```
 
