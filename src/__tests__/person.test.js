@@ -9,7 +9,7 @@ describe("CRUD Operations", () => {
   it("should create a new person", async () => {
     const res = await request(app)
       .post("/api/persons")
-      .send({ name: "John Doe", age: 30 });
+      .send({ name: "John Doe" });
 
     expect(res.statusCode).toEqual(201);
     expect(res.body.name).toEqual("John Doe");
@@ -32,7 +32,7 @@ describe("CRUD Operations", () => {
   it("should update a person by name", async () => {
     const res = await request(app)
       .put(`/api/persons/${testPerson.name}`)
-      .send({ name: "Updated Name", age: 35 });
+      .send({ name: "Updated Name" });
 
     expect(res.statusCode).toEqual(200);
     expect(res.body.name).toEqual("Updated Name");
