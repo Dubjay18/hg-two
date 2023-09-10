@@ -63,7 +63,7 @@ async function DeletePerson(req, res) {
     const name = req.params.name;
     const result = await Person.deleteOne({ name });
 
-    if (result.deletedCount === 0) {
+    if (result.n === 0) {
       return res
         .status(404)
         .json({ error: "Person not found" });

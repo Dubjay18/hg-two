@@ -9,9 +9,9 @@ const {
 
 const PersonRouter = Router();
 
-PersonRouter.post("/person", CreatePerson);
-PersonRouter.get("/person/:name", GetPersonByName);
-PersonRouter.put("/person/:name", UpdatePerson);
-PersonRouter.delete("/person/:name", DeletePerson);
-PersonRouter.get("/person/all", GetAllPeople);
+PersonRouter.post("/persons", CreatePerson);
+PersonRouter.get("/persons/:name", GetPersonByName);
+PersonRouter.put("/persons/:name", UpdatePerson);
+PersonRouter.delete("/persons/:name", DeletePerson);
+PersonRouter.get("/persons", GetAllPeople);
 module.exports = PersonRouter;

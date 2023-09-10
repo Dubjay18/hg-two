@@ -1,5 +1,6 @@
 const request = require("supertest");
-const app = require("./your-express-app-file"); // Replace with the path to your Express app file
+const app = require("../app");
+const { default: mongoose } = require("mongoose");
 
 describe("CRUD Operations", () => {
   let testPerson;
@@ -38,7 +39,11 @@ describe("CRUD Operations", () => {
   });
 
   // Test deleting a person by name
+  // Test deleting a person by name
   it("should delete a person by name", async () => {
+    // Verify that the person was created successfully in a previous test
+    expect(testPerson).toBeDefined();
+
     const res = await request(app).delete(
       `/api/persons/${testPerson.name}`
     );
@@ -50,5 +55,9 @@ describe("CRUD Operations", () => {
       `/api/persons/${testPerson.name}`
     );
     expect(getRes.statusCode).toEqual(404);
+  });
+  afterAll(async () => {
+    // Close the Mongoose connection
+    await mongoose.connection.close();
   });
 });
