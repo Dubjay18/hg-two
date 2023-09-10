@@ -2,20 +2,12 @@ const { default: mongoose } = require("mongoose");
 const JLogger = require("../../utils/logger");
 const { DB_URI } = require("../constants");
 
-mongoose.connection.on("connected", () => {
-  // Plugins later
-  // Log db connected
-  JLogger(
-    `${mongoose.connections[0].name} db connected with mongoose`
-  );
-});
-
-mongoose.connection.on("disconnect", () => {
-  // Plugins later
-  // Log db connected
-  JLogger(`${mongoose.connections[0].name} disconnected!`);
-});
-
+/**
+ * Connects to the MongoDB database using Mongoose.
+ * @function
+ * @param {string} DB_URI - The URI of the MongoDB database.
+ * @returns {Promise<void>} - A Promise that resolves when the connection is established.
+ */
 mongoose
   .connect(DB_URI, {
     useNewUrlParser: true,
@@ -23,4 +15,10 @@ mongoose
   })
   .then(() => console.log("Database connected!"))
   .catch((err) => console.log(err));
+
+/**
+ * Logs a message to the console when the database connection is established.
+ * @function
+ * @param {string} message - The message to log.
+ */
 JLogger("Connected correctly");

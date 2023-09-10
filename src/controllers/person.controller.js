@@ -1,5 +1,12 @@
 const Person = require("../models/person.model");
 
+/**
+ * Creates a new person with the given name.
+ * @async
+ * @param {Object} req - The request object.
+ * @param {Object} res - The response object.
+ * @returns {Object} The newly created person object.
+ */
 async function CreatePerson(req, res) {
   try {
     const { name } = req.body;
@@ -12,11 +19,23 @@ async function CreatePerson(req, res) {
 
     const person = new Person({ name });
     await person.save();
-    res.status(201).json(person);
+    const sanitizedPerson = {
+      ...person.toObject(),
+      __v: undefined,
+    };
+    res.status(201).json(sanitizedPerson);
   } catch (error) {
     res.status(500).json({ error: "Server error" });
   }
 }
+
+/**
+ * Gets the person with the given name.
+ * @async
+ * @param {Object} req - The request object.
+ * @param {Object} res - The response object.
+ * @returns {Object} The person object with the given name.
+ */
 async function GetPersonByName(req, res) {
   try {
     const name = req.params.name;
@@ -27,12 +46,23 @@ async function GetPersonByName(req, res) {
         .status(404)
         .json({ error: "Person not found" });
     }
-
-    res.json(person);
+    const sanitizedPerson = {
+      ...person.toObject(),
+      __v: undefined,
+    };
+    res.json(sanitizedPerson);
   } catch (error) {
     res.status(500).json({ error: "Server error" });
   }
 }
+
+/**
+ * Updates the person with the given name.
+ * @async
+ * @param {Object} req - The request object.
+ * @param {Object} res - The response object.
+ * @returns {Object} The updated person object.
+ */
 async function UpdatePerson(req, res) {
   try {
     const name = req.params.name;
@@ -51,13 +81,23 @@ async function UpdatePerson(req, res) {
         .status(404)
         .json({ error: "Person not found" });
     }
-
-    res.json(person);
+    const sanitizedPerson = {
+      ...person.toObject(),
+      __v: undefined,
+    };
+    res.json(sanitizedPerson);
   } catch (error) {
     res.status(500).json({ error: "Server error" });
   }
 }
 
+/**
+ * Deletes the person with the given name.
+ * @async
+ * @param {Object} req - The request object.
+ * @param {Object} res - The response object.
+ * @returns {Object} A success message.
+ */
 async function DeletePerson(req, res) {
   try {
     const name = req.params.name;
@@ -75,19 +115,26 @@ async function DeletePerson(req, res) {
   }
 }
 
-async function GetAllPeople(req, res) {
-  try {
-    const people = await Person.find({});
-    res.json(people);
-  } catch (error) {
-    res.status(500).json({ error: "Server error" });
-  }
-}
+// /**
+//  * Gets all people.
+//  * @async
+//  * @param {Object} req - The request object.
+//  * @param {Object} res - The response object.
+//  * @returns {Array} An array of all person objects.
+//  */
+// async function GetAllPeople(req, res) {
+//   try {
+//     const people = await Person.find({});
+//     res.json(people);
+//   } catch (error) {
+//     res.status(500).json({ error: "Server error" });
+//   }
+// }
 
 module.exports = {
   CreatePerson,
   GetPersonByName,
   UpdatePerson,
   DeletePerson,
-  GetAllPeople,
+  //   GetAllPeople,
 };

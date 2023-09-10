@@ -1,3 +1,7 @@
+/**
+ * This module defines the Express application for the project.
+ * @module app
+ */
 const express = require("express");
 const PersonRouter = require("./routes/person.route");
 require("./config/db/connect");
