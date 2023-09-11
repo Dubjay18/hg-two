@@ -70,11 +70,11 @@ The server should now be running at http://localhost:8000.
 
 - **Read a Person by Name**: `GET /api/user_id`
 
-  - Fetch details of a person by ther Id.
+  - Fetch details of a person by their Id.
 
 - **Update a Person by Name**: `PUT /api/user_id`
 
-  - Modify details of an existing person by ther Id.
+  - Modify details of an existing person by their Id.
   - **Request Body Example**:
 
     ```json
@@ -84,7 +84,7 @@ The server should now be running at http://localhost:8000.
     ```
 
 - **Delete a Person by Name**: `DELETE /api/user_id`
-  - Remove a person by ther Id.
+  - Remove a person by their Id.
 
 ### Testing
 
