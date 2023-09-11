@@ -12,7 +12,7 @@ The base URL for all API endpoints is:
 
 ### Create a Person
 
-**Endpoint:** `POST /persons`
+**Endpoint:** `POST /`
 
 **Description:** Add a new person to the database.
 
@@ -43,7 +43,7 @@ The base URL for all API endpoints is:
 
 # Read a Person by Name
 
-**Endpoint:** GET /persons/:name
+**Endpoint:** GET /user_id
 
 **Description:** Fetch details of a person by their name.
 
@@ -66,7 +66,7 @@ The base URL for all API endpoints is:
 
 # Update a Person by Name
 
-**Endpoint:** PUT /persons/:name
+**Endpoint:** PUT /user_id
 
 **Description:** Modify details of an existing person by
 their name.
@@ -106,7 +106,7 @@ their name.
 
 # Delete a Person by Name
 
-**Endpoint:** DELETE /persons/:name
+**Endpoint:** DELETE /user_id
 
 **Description:** Remove a person by their name.
 

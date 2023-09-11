@@ -6,7 +6,7 @@
 const { Router } = require("express");
 const {
   CreatePerson,
-  GetPersonByName,
+  GetPersonById,
   UpdatePerson,
   DeletePerson,
 } = require("../controllers/person.controller");
@@ -21,46 +21,46 @@ const PersonRouter = Router();
 
 /**
  * Route serving creation of a new person.
- * @name post/persons
+ * @name post/
  * @function
  * @memberof module:routes/person~PersonRouter
  * @inner
  * @param {string} path - Express path
  * @param {callback} middleware - Express middleware
  */
-PersonRouter.post("/persons", CreatePerson);
+PersonRouter.post("/", CreatePerson);
 
 /**
  * Route serving retrieval of a person by name.
- * @name get/persons/:name
+ * @name get/:user_id
  * @function
  * @memberof module:routes/person~PersonRouter
  * @inner
  * @param {string} path - Express path
  * @param {callback} middleware - Express middleware
  */
-PersonRouter.get("/persons/:name", GetPersonByName);
+PersonRouter.get("/:user_id", GetPersonById);
 
 /**
  * Route serving update of a person by name.
- * @name put/persons/:name
+ * @name put/:user_id
  * @function
  * @memberof module:routes/person~PersonRouter
  * @inner
  * @param {string} path - Express path
  * @param {callback} middleware - Express middleware
  */
-PersonRouter.put("/persons/:name", UpdatePerson);
+PersonRouter.put("/:user_id", UpdatePerson);
 
 /**
  * Route serving deletion of a person by name.
- * @name delete/persons/:name
+ * @name delete/user_id
  * @function
  * @memberof module:routes/person~PersonRouter
  * @inner
  * @param {string} path - Express path
  * @param {callback} middleware - Express middleware
  */
-PersonRouter.delete("/persons/:name", DeletePerson);
+PersonRouter.delete("/:user_id", DeletePerson);
 
 module.exports = PersonRouter;

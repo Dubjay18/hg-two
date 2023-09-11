@@ -8,7 +8,7 @@ describe("CRUD Operations", () => {
   // Test creating a new person
   it("should create a new person", async () => {
     const res = await request(app)
-      .post("/api/persons")
+      .post("/api/")
       .send({ name: "John Doe" });
 
     expect(res.statusCode).toEqual(201);
@@ -18,41 +18,41 @@ describe("CRUD Operations", () => {
     testPerson = res.body;
   });
 
-  // Test reading a person by name
-  it("should read a person by name", async () => {
+  // Test reading a person by id
+  it("should read a person by id", async () => {
     const res = await request(app).get(
-      `/api/persons/${testPerson.name}`
+      `/api/${testPerson._id}`
     );
 
     expect(res.statusCode).toEqual(200);
     expect(res.body.name).toEqual("John Doe");
   });
 
-  // Test updating a person by name
-  it("should update a person by name", async () => {
+  // Test updating a person by id
+  it("should update a person by id", async () => {
     const res = await request(app)
-      .put(`/api/persons/${testPerson.name}`)
+      .put(`/api/${testPerson._id}`)
       .send({ name: "Updated Name" });
 
     expect(res.statusCode).toEqual(200);
     expect(res.body.name).toEqual("Updated Name");
   });
 
-  // Test deleting a person by name
-  // Test deleting a person by name
-  it("should delete a person by name", async () => {
+  // Test deleting a person by id
+  // Test deleting a person by id
+  it("should delete a person by id", async () => {
     // Verify that the person was created successfully in a previous test
     expect(testPerson).toBeDefined();
 
     const res = await request(app).delete(
-      `/api/persons/${testPerson.name}`
+      `/api/${testPerson._id}`
     );
 
     expect(res.statusCode).toEqual(204);
 
     // Verify that the person was deleted
     const getRes = await request(app).get(
-      `/api/persons/${testPerson.name}`
+      `/api/${testPerson._id}`
     );
     expect(getRes.statusCode).toEqual(404);
   });

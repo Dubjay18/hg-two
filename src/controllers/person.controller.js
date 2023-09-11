@@ -30,16 +30,16 @@ async function CreatePerson(req, res) {
 }
 
 /**
- * Gets the person with the given name.
+ * Gets the person with the given id.
  * @async
  * @param {Object} req - The request object.
  * @param {Object} res - The response object.
  * @returns {Object} The person object with the given name.
  */
-async function GetPersonByName(req, res) {
+async function GetPersonById(req, res) {
   try {
-    const name = req.params.name;
-    const person = await Person.findOne({ name });
+    const user_id = req.params.user_id;
+    const person = await Person.findOne({ _id: user_id });
 
     if (!person) {
       return res
@@ -65,11 +65,11 @@ async function GetPersonByName(req, res) {
  */
 async function UpdatePerson(req, res) {
   try {
-    const name = req.params.name;
+    const user_id = req.params.user_id;
     const updatedPerson = req.body;
 
     const person = await Person.findOneAndUpdate(
-      { name },
+      { _id: user_id },
       updatedPerson,
       {
         new: true,
@@ -100,8 +100,8 @@ async function UpdatePerson(req, res) {
  */
 async function DeletePerson(req, res) {
   try {
-    const name = req.params.name;
-    const result = await Person.deleteOne({ name });
+    const user_id = req.params.user_id;
+    const result = await Person.deleteOne({ _id: user_id });
 
     if (result.n === 0) {
       return res
@@ -133,7 +133,7 @@ async function DeletePerson(req, res) {
 
 module.exports = {
   CreatePerson,
-  GetPersonByName,
+  GetPersonById,
   UpdatePerson,
   DeletePerson,
   //   GetAllPeople,

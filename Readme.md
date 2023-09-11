@@ -57,7 +57,7 @@ The server should now be running at http://localhost:8000.
 
 ### API Endpoints
 
-- **Create a Person**: `POST /api/persons`
+- **Create a Person**: `POST /api/`
 
   - Add a new person to the database.
   - **Request Body Example**:
@@ -68,13 +68,13 @@ The server should now be running at http://localhost:8000.
     }
     ```
 
-- **Read a Person by Name**: `GET /api/persons/:name`
+- **Read a Person by Name**: `GET /api/user_id`
 
-  - Fetch details of a person by their name.
+  - Fetch details of a person by ther Id.
 
-- **Update a Person by Name**: `PUT /api/persons/:name`
+- **Update a Person by Name**: `PUT /api/user_id`
 
-  - Modify details of an existing person by their name.
+  - Modify details of an existing person by ther Id.
   - **Request Body Example**:
 
     ```json
@@ -83,8 +83,8 @@ The server should now be running at http://localhost:8000.
     }
     ```
 
-- **Delete a Person by Name**: `DELETE /api/persons/:name`
-  - Remove a person by their name.
+- **Delete a Person by Name**: `DELETE /api/user_id`
+  - Remove a person by ther Id.
 
 ### Testing
 
