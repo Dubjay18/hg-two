@@ -124,7 +124,8 @@ async function DeletePerson(req, res) {
  */
 async function GetAllPeople(req, res) {
   try {
-    const people = await Person.find({});
+    const people = await Person.find({}).select("-__v");
+
     res.json(people);
   } catch (error) {
     res.status(500).json({ error: "Server error" });
