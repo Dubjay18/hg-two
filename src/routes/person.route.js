@@ -9,6 +9,7 @@ const {
   GetPersonById,
   UpdatePerson,
   DeletePerson,
+  GetAllPeople,
 } = require("../controllers/person.controller");
 
 /**
@@ -62,5 +63,16 @@ PersonRouter.put("/:user_id", UpdatePerson);
  * @param {callback} middleware - Express middleware
  */
 PersonRouter.delete("/:user_id", DeletePerson);
+
+/**
+ * Route serving retrieval of all people.
+ * @name get/
+ * @function
+ * @memberof module:routes/person~PersonRouter
+ * @inner
+ * @param {string} path - Express path
+ * @param {callback} middleware - Express middleware
+ */
+PersonRouter.get("/", GetAllPeople);
 
 module.exports = PersonRouter;

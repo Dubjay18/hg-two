@@ -115,26 +115,26 @@ async function DeletePerson(req, res) {
   }
 }
 
-// /**
-//  * Gets all people.
-//  * @async
-//  * @param {Object} req - The request object.
-//  * @param {Object} res - The response object.
-//  * @returns {Array} An array of all person objects.
-//  */
-// async function GetAllPeople(req, res) {
-//   try {
-//     const people = await Person.find({});
-//     res.json(people);
-//   } catch (error) {
-//     res.status(500).json({ error: "Server error" });
-//   }
-// }
+/**
+ * Gets all people.
+ * @async
+ * @param {Object} req - The request object.
+ * @param {Object} res - The response object.
+ * @returns {Array} An array of all person objects.
+ */
+async function GetAllPeople(req, res) {
+  try {
+    const people = await Person.find({});
+    res.json(people);
+  } catch (error) {
+    res.status(500).json({ error: "Server error" });
+  }
+}
 
 module.exports = {
   CreatePerson,
   GetPersonById,
   UpdatePerson,
   DeletePerson,
-  //   GetAllPeople,
+  GetAllPeople,
 };

@@ -10,6 +10,28 @@ The base URL for all API endpoints is:
 
 ## Endpoints
 
+### Get all people
+
+**Endpoint:** `GET /`
+
+**Description:** Get all people in database.
+
+**Reqponse (200)Ok:**
+
+```json
+[
+
+  {
+    "name": "John Doe2",
+    "_id: "....
+  },
+  {
+    "name": "John Doe",
+    "_id: "....
+  },
+]
+```
+
 ### Create a Person
 
 **Endpoint:** `POST /`
@@ -41,11 +63,11 @@ The base URL for all API endpoints is:
 }
 ```
 
-# Read a Person by Name
+# Read a Person by id
 
-**Endpoint:** GET /user_id
+**Endpoint:** GET /:user_id
 
-**Description:** Fetch details of a person by their name.
+**Description:** Fetch details of a person by their:user_id.
 
 **Response (200 OK):**
 
@@ -64,12 +86,12 @@ The base URL for all API endpoints is:
 }
 ```
 
-# Update a Person by Name
+# Update a Person by id
 
-**Endpoint:** PUT /user_id
+**Endpoint:** PUT /:user_id
 
 **Description:** Modify details of an existing person by
-their name.
+their user_id
 
 **Request:**
 
@@ -104,11 +126,11 @@ their name.
 }
 ```
 
-# Delete a Person by Name
+# Delete a Person by id
 
-**Endpoint:** DELETE /user_id
+**Endpoint:** DELETE /:user_id
 
-**Description:** Remove a person by their name.
+**Description:** Remove a person by their :user_id.
 
 **Response (204 No Content):**
 
@@ -137,7 +159,7 @@ Here's an example of how to use the API in a JavaScript
 application:
 
 ```javascript
-// Fetch a person by name
+// Fetch a person by id
 fetch("https://hg-two.onrender.com/api/persons/John%20Doe")
   .then((response) => response.json())
   .then((data) => console.log(data))
