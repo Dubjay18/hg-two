@@ -160,7 +160,7 @@ application:
 
 ```javascript
 // Fetch a person by id
-fetch("https://hg-two.onrender.com/api/persons/John%20Doe")
+fetch("https://hg-two.onrender.com/api/John%20Doe")
   .then((response) => response.json())
   .then((data) => console.log(data))
   .catch((error) => console.error(error));
